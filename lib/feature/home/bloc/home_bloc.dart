@@ -5,13 +5,16 @@ import 'package:meta/meta.dart';
 import 'package:shopping_cart_ui/feature/cart/data/cart_items.dart';
 import 'package:shopping_cart_ui/model/product_model.dart';
 import 'package:shopping_cart_ui/services/api_services.dart';
+
+import '../../wishlist/wishlist_items.dart';
 part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
     on<HomeInitialEvent>(homeInitialEvent);
-    // on<HomeProductWishlistButtonClickedEvent>(homeProductWishlistButtonClicked);
+    on<HomeProductWishlistButtonClickedEvent>(
+        homeProductWishlistButtonClickedEvent);
     on<HomeProductCartButtonClickedEvent>(homeProductCartButtonClickedEvent);
 
     // on<HomeWishListButtonNavigationEvent>(homeWishListButtonNavigationEvent);
@@ -62,4 +65,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     print('cart navigate clicked');
     emit(HomeNavigateToCartPageActionState());
   }
+}
+
+FutureOr<void> homeProductWishlistButtonClickedEvent(
+    HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
+  print('wishlist product clicked');
+  wishlistItems.add(event.clickedProduct);
+
+  emit(HomeProductItemWishlistedActionState());
 }

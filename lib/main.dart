@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           brightness: Brightness.dark,
           primarySwatch: Colors.blue),
-      home: HomeScreen(),
+      home: HomeScreenNav(),
     );
   }
 }

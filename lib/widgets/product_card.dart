@@ -68,7 +68,15 @@ class ProductCard extends StatelessWidget {
                       top: 0,
                       right: 0,
                       child: IconButton(
-                          onPressed: () {}, icon: Icon(Iconsax.heart5)))
+                          onPressed: () {
+                            homeBloc.add(
+                              HomeProductWishlistButtonClickedEvent(
+                                  clickedProduct: product),
+                            );
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Item wishlisted')));
+                          },
+                          icon: Icon(Iconsax.heart5)))
                 ],
               ),
             ),
@@ -114,14 +122,20 @@ class ProductCard extends StatelessWidget {
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(12),
                           bottomRight: Radius.circular(16))),
-                  child: const SizedBox(
-                      width: 32,
-                      height: 32,
-                      child: Center(
-                          child: Icon(
-                        Iconsax.add,
-                        color: Colors.white,
-                      ))),
+                  child: GestureDetector(
+                    onTap: () {
+                      homeBloc.add(HomeProductCartButtonClickedEvent(
+                          clickedProduct: product));
+                    },
+                    child: const SizedBox(
+                        width: 32,
+                        height: 32,
+                        child: Center(
+                            child: Icon(
+                          Iconsax.add,
+                          color: Colors.white,
+                        ))),
+                  ),
                 )
               ],
             )

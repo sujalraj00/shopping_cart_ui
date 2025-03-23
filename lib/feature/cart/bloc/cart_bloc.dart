@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:shopping_cart_ui/model/product_model.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
