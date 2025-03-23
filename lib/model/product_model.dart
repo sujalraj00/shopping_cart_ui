@@ -52,31 +52,35 @@ class Product {
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],
-      title: json['title'],
-      description: json['description'],
-      category: json['category'],
-      price: (json['price'] as num).toDouble(),
-      discountPercentage: (json['discountPercentage'] as num).toDouble(),
-      rating: (json['rating'] as num).toDouble(),
-      stock: json['stock'],
-      tags: List<String>.from(json['tags']),
-      brand: json['brand'],
-      sku: json['sku'],
-      weight: (json['weight'] as num).toDouble(),
-      dimensions: Dimensions.fromJson(json['dimensions']),
-      warrantyInformation: json['warrantyInformation'],
-      shippingInformation: json['shippingInformation'],
-      availabilityStatus: json['availabilityStatus'],
-      reviews: (json['reviews'] as List)
-          .map((review) => Review.fromJson(review))
-          .toList(),
-      returnPolicy: json['returnPolicy'],
-      minimumOrderQuantity: json['minimumOrderQuantity'],
-      meta: Meta.fromJson(json['meta']),
-      images: List<String>.from(json['images']),
-      thumbnail: json['thumbnail'],
+      title: json['title'] ?? '',
+      description: json['description'] ?? '',
+      category: json['category'] ?? '',
+      price: (json['price'] as num?)?.toDouble() ?? 0.0,
+      discountPercentage:
+          (json['discountPercentage'] as num?)?.toDouble() ?? 0.0,
+      rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
+      stock: json['stock'] ?? 0,
+      tags: List<String>.from(json['tags'] ?? []),
+      brand: json['brand'] ?? '',
+      sku: json['sku'] ?? '',
+      weight: (json['weight'] as num?)?.toDouble() ?? 0.0,
+      dimensions: Dimensions.fromJson(json['dimensions'] ?? {}),
+      warrantyInformation: json['warrantyInformation'] ?? '',
+      shippingInformation: json['shippingInformation'] ?? '',
+      availabilityStatus: json['availabilityStatus'] ?? '',
+      reviews: (json['reviews'] as List?)
+              ?.map((review) => Review.fromJson(review))
+              .toList() ??
+          [],
+      returnPolicy: json['returnPolicy'] ?? '',
+      minimumOrderQuantity: json['minimumOrderQuantity'] ?? 0,
+      meta: Meta.fromJson(json['meta'] ?? {}),
+      images: List<String>.from(json['images'] ?? []),
+      thumbnail: json['thumbnail'] ?? '',
     );
   }
+
+  String get image => images.isNotEmpty ? images[0] : '';
 }
 
 class Dimensions {
