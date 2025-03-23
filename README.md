@@ -13,9 +13,6 @@ A Flutter project showcasing a shopping cart user interface.
 - Flutter  
 - Dart  
 
-## Screenshots  
-(Add relevant screenshots of your project here)  
-
 ## Demo Video  
 Watch the demo of the project here: [YouTube Video Link](https://youtube.com/shorts/JmcaGStnuMw?feature=share)  
 
@@ -28,14 +25,13 @@ flutter --version
 
 Installation
 Clone the repository:
+git clone https://github.com/yourusername/shopping_cart_ui.git
 
-git clone https://github.com/yourusername/shopping_cart_ui.git  
 Navigate to the project directory:
+cd shopping_cart_ui
 
-cd shopping_cart_ui  
 Install dependencies:
+flutter pub get
 
-flutter pub get  
 Run the app:
-
 flutter run  
