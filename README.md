@@ -29,25 +29,13 @@ flutter --version
 Installation
 Clone the repository:
 
-bash
-Copy
-Edit
 git clone https://github.com/yourusername/shopping_cart_ui.git  
 Navigate to the project directory:
 
-bash
-Copy
-Edit
 cd shopping_cart_ui  
 Install dependencies:
 
-bash
-Copy
-Edit
 flutter pub get  
 Run the app:
 
-bash
-Copy
-Edit
 flutter run  
